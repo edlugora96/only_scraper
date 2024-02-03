@@ -45,15 +45,16 @@ fn platform_details() -> (&'static str, &'static str, PathBuf) {
     let (platform, archive_name) = match (cfg!(target_os = "linux"), cfg!(target_arch = "aarch64"))
     {
         (true, _) => ("Linux_x64", "chrome-linux"),
-        (_, true) => ("Mac_arm", "chrome-mac"),
-        _ if cfg!(target_os = "macos") => ("Mac", "chrome-mac"),
+        (_, true) => ("Mac_Arm", "chrome-mac"),
+        _ if cfg!(all(target_os = "macos", target_arch="aarch64")) => ("Mac_Arm", "chrome-mac"),
+        _ if cfg!(all(target_os = "macos", not(target_arch="aarch64"))) => ("Mac", "chrome-mac"),
         _ if cfg!(target_os = "windows") => ("Win_x64", "chrome-win"),
         _ => panic!("Unsupported platform"),
     };
     let chrome_path = match platform {
         "Linux_x64" => PathBuf::from("chrome"),
         "Win_x64" => PathBuf::from("chrome.exe"),
-        "Mac" | "Mac_arm" => PathBuf::from("Chromium.app/Contents/MacOS/Chromium"),
+        "Mac" | "Mac_Arm" => PathBuf::from("Chromium.app/Contents/MacOS/Chromium"),
         _ => panic!("Unsupported platform"),
     };
 

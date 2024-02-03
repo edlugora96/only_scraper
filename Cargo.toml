@@ -4,7 +4,7 @@ crate-type = ["rlib", "cdylib"]
 
 [package]
 name = "only_scraper"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Eduardo Gonzalez <me@edlugora.com>"]
 description = "Only scrape webpages"
