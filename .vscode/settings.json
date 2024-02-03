@@ -7,5 +7,6 @@
         "./Cargo.toml",
         "./Cargo.toml",
         "./Cargo.toml"
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/doc/docs/index.html"
 }

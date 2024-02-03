@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="rustdoc" />
+    <title>Only Scraper 🚀</title>
+  </head>
+  <body class="rustdoc">
+    <!--[if lte IE 8]>
+      <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+      </div>
+    <![endif]-->
+
+    <h1 class="title">Only Scraper 🚀</h1>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#overview-">0.1 Overview 📖</a>
+          <ul></ul>
+        </li>
+        <li>
+          <a href="#why-only-scraper-">0.2 Why Only Scraper? 🤔</a>
+          <ul></ul>
+        </li>
+        <li>
+          <a href="#features-">0.3 Features 🌟</a>
+          <ul></ul>
+        </li>
+        <li>
+          <a href="#getting-started-">0.4 Getting Started 🚀</a>
+          <ul>
+            <li>
+              <a href="#installation-">0.4.1 Installation 🛠️</a>
+              <ul></ul>
+            </li>
+            <li>
+              <a href="#doc-">0.4.2 Doc 📝</a>
+              <ul></ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#contributing-">0.5 Contributing 🤝</a>
+          <ul></ul>
+        </li>
+        <li>
+          <a href="#license-">0.6 License 📄</a>
+          <ul></ul>
+        </li>
+      </ul>
+    </nav>
+    <h2 id="overview-"><a href="#overview-">0.1 Overview 📖</a></h2>
+    <p>
+      Only Scraper is a minimalist, high-performance web scraping tool written
+      in Rust 🦀, focusing solely on the task of scraping web pages. It stands
+      out by not using any external libraries, thereby providing a streamlined
+      and efficient solution for developers. This project is tailored for those
+      who seek a simple and direct approach to web scraping, without the
+      overhead of additional functionalities that are often bundled in other
+      libraries.
+    </p>
+    <h2 id="why-only-scraper-">
+      <a href="#why-only-scraper-">0.2 Why Only Scraper? 🤔</a>
+    </h2>
+    <p>
+      With a plethora of web scraping tools available, many of which offer
+      extensive features like end-to-end testing and browser automation, Only
+      Scraper cuts through the noise by offering a no-frills, focused solution.
+      By eliminating the dependency on external libraries, Only Scraper ensures
+      that your scraping tasks are not bogged down by unnecessary complexities,
+      making it a swift and straightforward option for retrieving web page data.
+    </p>
+    <h2 id="features-"><a href="#features-">0.3 Features 🌟</a></h2>
+    <ul>
+      <li>
+        <strong>Zero External Dependencies</strong> 📦: Maximizes efficiency and
+        minimizes setup time by relying solely on Rust’s standard library.
+      </li>
+      <li>
+        <strong>Optimized for Speed</strong> ⚡: Takes full advantage of Rust’s
+        performance and safety to offer quick and reliable web scraping.
+      </li>
+      <li>
+        <strong>Singular Focus</strong> 🔍: Provides just what you need for
+        scraping web pages, nothing more, nothing less.
+      </li>
+    </ul>
+    <h2 id="getting-started-">
+      <a href="#getting-started-">0.4 Getting Started 🚀</a>
+    </h2>
+    <h3 id="installation-">
+      <a href="#installation-">0.4.1 Installation 🛠️</a>
+    </h3>
+    <p>
+      To integrate Only Scraper into your Rust project, add the following to
+      your <code>Cargo.toml</code> file:
+    </p>
+    <div class="example-wrap">
+      <pre class="language-toml"><code>[dependencies]
+only_scraper = { git = &quot;https://github.com/edlugora96/only_scraper.git&quot;, branch = &quot;main&quot; }
+</code></pre>
+    </div>
+    <p>
+      This will fetch the library directly from the GitHub repository and
+      incorporate it into your project.
+    </p>
+    <h3 id="doc-"><a href="#doc-">0.4.2 Doc 📝</a></h3>
+    <p>
+      Only Scraper is designed to be as simple as possible, with only one method
+      needed to perform web scraping. Here’s a minimal example to demonstrate
+      its usage:
+    </p>
+
+    <div class="example-wrap">
+      <pre
+        class="rust rust-example-rendered"
+      ><code><span class="kw">use </span>only_scraper;
+<span class="kw">use </span>std::io::Result;
+
+<span class="kw">fn </span>main() -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; {
+    <span class="kw">let </span>html = only_scraper::scrape(<span class="string">&quot;https://example.com&quot;</span>)<span class="question-mark">?</span>;
+    <span class="macro">println!</span>(<span class="string">&quot;{}&quot;</span>, html);
+    <span class="prelude-val">Ok</span>(())
+}</code></pre>
+    </div>
+    <p>
+      This code snippet fetches the HTML content of the specified URL and prints
+      it out, showcasing the simplicity and efficiency of Only Scraper.
+    </p>
+    <h2 id="contributing-"><a href="#contributing-">0.5 Contributing 🤝</a></h2>
+    <p>
+      We welcome contributions to make Only Scraper even better. Whether it’s
+      feature requests, bug reports, or code contributions, please feel free to
+      reach out by opening an issue or a pull request on GitHub.
+    </p>
+    <h2 id="license-"><a href="#license-">0.6 License 📄</a></h2>
+    <p>
+      Only Scraper is released under the MIT License. For more details, please
+      refer to the LICENSE file in the repository.
+    </p>
+  </body>
+</html>
