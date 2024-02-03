@@ -36,7 +36,7 @@ use only_scraper;
 use std::io::Result;
 
 fn main() -> Result<()> {
-    let html = only_scraper::only_scrape("https://example.com")?;
+    let html = only_scraper::scrape("https://example.com")?;
     println!("{}", html);
     Ok(())
 }
