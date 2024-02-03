@@ -6,6 +6,10 @@ crate-type = ["rlib", "cdylib"]
 name = "only_scraper"
 version = "0.1.0"
 edition = "2021"
+authors = ["Eduardo Gonzalez <me@edlugora.com>"]
+description = "Only scrape webpages"
+license = "MIT"
+repository = "https://github.com/edlugora96/only_scraper"
+readme = "README.md"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
