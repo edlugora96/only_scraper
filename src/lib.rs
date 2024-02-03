@@ -28,8 +28,9 @@
 //! ```
 //!
 //! This code snippet fetches the HTML content of the specified URL and prints it out, showcasing the simplicity and efficiency of Only Scraper.
+use std::ffi::{CStr, CString};
 use std::io;
-
+use std::os::raw::c_char;
 mod chrome;
 use chrome::{application, executable, scraper};
 
@@ -44,4 +45,38 @@ pub fn scrape(url: String) -> io::Result<String> {
     let output = scraper::scrape(executable_path, url)?;
 
     Ok(output)
+}
+
+#[no_mangle]
+pub extern "C" fn c_scrape(url: *const c_char) -> *mut c_char {
+    let url_str = unsafe {
+        assert!(!url.is_null());
+        CStr::from_ptr(url).to_str().unwrap_or("")
+    };
+
+    let executable_path = match application::download_and_install_chrome() {
+        Ok(path) => path,
+        Err(_) => match executable::find_executable() {
+            Ok(path) => path,
+            Err(_) => return std::ptr::null_mut(),
+        },
+    };
+
+    match scraper::scrape(executable_path, url_str.to_owned()) {
+        Ok(output) => {
+            let c_string = CString::new(output).expect("Failed to create CString");
+            c_string.into_raw()
+        }
+        Err(_) => std::ptr::null_mut(),
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn free_rust_string(s: *mut c_char) {
+    unsafe {
+        if s.is_null() {
+            return;
+        }
+        let _ = CString::from_raw(s);
+    }
 }
