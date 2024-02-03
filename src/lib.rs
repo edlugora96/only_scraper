@@ -3,7 +3,7 @@ use std::io;
 mod chrome;
 use chrome::{application, executable, scraper};
 
-pub fn only_scrape(url: String) -> io::Result<String> {
+pub fn scrape(url: String) -> io::Result<String> {
     let executable_path;
     match application::download_and_install_chrome() {
         Ok(path) => executable_path = path,
