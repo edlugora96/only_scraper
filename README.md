@@ -22,7 +22,7 @@ To integrate Only Scraper into your Rust project, add the following to your `Car
 
 ```toml
 [dependencies]
-only_scraper = "0.1.0"
+only_scraper = "0.1.2"
 ```
 
 This will fetch the library directly from the GitHub repository and incorporate it into your project.
